@@ -1,0 +1,329 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+
+<p-fieldset legend="Dossier 📁">
+
+  <div class="field col-12 md:col-6">
+
+
+
+
+    <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Num° Dossier:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ p.numDossier }}
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Nom Prenom:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ getClientNomPrenom(p.idClient ?? '') }}
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> ID Client:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ p.idClient  }}
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Dossier Type:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ p.typeDossier  }}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Jours SDB:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ p.joursdb  }}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Jours IMP:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{ p.jourimp  }}
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Region:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{getRegionlibelle(getClientregion(p.idClient ?? ''))}}
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Groupe:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{getGroupelibelle(getClientgroupe(p.idClient ?? ''))}}
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Segment:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{getSeglibelle(getClientsegment(p.idClient ?? ''))}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Class:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.classeFinal}}
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Montant SDB:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.mntSdb}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Montant IMP:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.mntImpaye}}
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Phase:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.phase}}
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Entre CTX:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.entreCTX}}
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Sortie CTX:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.sortieCTX}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Entre Recouv:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.entreRecouv}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Sortie Recouv:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.sortieRecouv}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <label for="float-input" class="col-3" style="margin-right: 10px;"> Encours Global:</label>
+        <div
+          [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+          {{p.encoursGlobal}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</p-fieldset>
+
+<p-fieldset legend="List Compte Client 🧾">
+
+  <p-table [value]="comptes" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+
+  <tr >
+    <th>Num° Compte</th>
+    <th>ID Client</th>
+    <th>Agence</th>
+    <th>Montant</th>
+    <th>Type Dossier</th>
+    <th>Montant Impayé</th>
+    <th>Jours Impayé</th>
+    <th>Montant SDB</th>
+    <th>Mnt IMP</th>
+    <th>jour(s) IMP</th>
+    <th>Mnt SDB</th>
+    <th>jour(s) SDB</th>
+    <th>Phase</th>
+
+  </tr>
+
+  <!--afficher un tableau avec la boucle for-->
+</ng-template>
+<!--afficher un tableau avec la boucle for-->
+<ng-template pTemplate="body" let-g>
+  <tr >
+    <td>{{g.numCompte }}</td>
+    <td>{{g.idClient}}</td>
+    <td>{{getAgencelibelle(g.agence)}}</td>
+    <td>{{g.montant}}</td>
+    <td>{{getDossierlibelle(g.typeDossier) }}</td>
+    <td>{{g.mntImpaye}}</td>
+    <td>{{g.jrImpaye}}</td>
+    <td>{{g.mntSdb}}</td>
+    <td>{{g.jrSdb}}</td>
+
+
+
+
+  </tr>
+</ng-template>
+</p-table>
+</p-fieldset>
+
+<p-fieldset legend="Histroique Compte Rendu 📅">
+
+  <div class="table-responsive">
+    <p-table [value]="listCompteRendus" [scrollable]="true" scrollHeight="400px">
+      <ng-template pTemplate="header">
+
+      <tr >
+        <th style="min-width:200px">Num° Compte Rendu</th>
+        <th style="min-width:200px">Num° Dossier</th>
+        <th style="min-width:200px">Date Saisie</th>
+        <th style="min-width:200px">Compte Rendu</th>
+        <th style="min-width:200px" >Utulisateur</th>
+        <th style="min-width:200px">Agence</th>
+        <th style="min-width:200px">client Contacte Avec</th>
+        <th style="min-width:200px">Autre Element</th>
+        <th style="min-width:200px">Type Compte Rendu</th>
+        <th style="min-width:200px">Montant Reglement</th>
+        <th style="min-width:200px">Date Reglement</th>
+        <th style="min-width:200px">Lieu Reglement</th>
+        <th style="min-width:200px">Montant Facilite Paiement</th>
+        <th style="min-width:200px">Nombre Echeance Facilite Paiement</th>
+        <th style="min-width:200px">Montant EcheanceFP1</th>
+        <th style="min-width:200px">Date EcheanceFP1</th>
+        <th style="min-width:200px">Montant EcheanceFP2</th>
+        <th style="min-width:200px">Date EcheanceFP2</th>
+        <th style="min-width:200px">Montant EcheanceFP3</th>
+        <th style="min-width:200px">Date EcheanceFP3</th>
+        <th style="min-width:200px">Montant EcheanceFP4</th>
+        <th style="min-width:200px">Date EcheanceFP4</th>
+        <th style="min-width:200px">Montant EcheanceFP5</th>
+        <th style="min-width:200px">Date EcheanceFP5</th>
+        <th style="min-width:200px">Observation Non Reconaissance Creance</th>
+        <th style="min-width:200px" >Date Visite</th>
+        <th style="min-width:200px">Heure Visite Debut</th>
+        <th style="min-width:200px">heure Visite Fin</th>
+        <th style="min-width:200px">tel1NC</th>
+        <th style="min-width:200px">tel2NC</th>
+        <th style="min-width:200px">faxNC</th>
+        <th style="min-width:200px">adresseNC</th>
+        <th style="min-width:200px">observationIncapacite</th>
+
+
+
+      </tr>
+
+      <!--afficher un tableau avec la boucle for-->
+      <tr *ngFor="let p of listCompteRendus ">
+        <!-- <div *ngIf="p.price <= condition "> -->
+
+        <td style="min-width:200px">{{p.numeroCompteRendu}}</td>
+        <td style="min-width:200px">{{p.numDossier}}</td>
+        <td style="min-width:200px">{{p.dateSaisieCompteRendu}}</td>
+        <td style="min-width:200px" >{{p.compteRendu}}</td>
+        <td style="min-width:200px">{{p.utulisateur}}</td>
+        <td style="min-width:200px">{{p.agence}}</td>
+        <td style="min-width:200px">{{p.clientContacteAvec}}</td>
+        <td style="min-width:200px">{{p.autreElement}}</td>
+        <td style="min-width:200px">{{p.typeCompteRendu}}</td>
+        <td style="min-width:200px">{{p.montantReglement}}</td>
+        <td style="min-width:200px">{{p.dateReglement}}</td>
+        <td style="min-width:200px">{{p.lieuReglement}}</td>
+        <td style="min-width:200px">{{p.montantFacilitePaiement}}</td>
+        <td style="min-width:200px">{{p.nombreEcheanceFacilitePaiement}}</td>
+        <td style="min-width:200px">{{p.montantEcheanceFP1}}</td>
+        <td style="min-width:200px">{{p.dateEcheanceFP1}}</td>
+        <td style="min-width:200px">{{p.montantEcheanceFP2}}</td>
+        <td style="min-width:200px">{{p.dateEcheanceFP2}}</td>
+        <td style="min-width:200px">{{p.montantEcheanceFP3}}</td>
+        <td style="min-width:200px">{{p.dateEcheanceFP3}}</td>
+        <td style="min-width:200px">{{p.montantEcheanceFP4}}</td>
+        <td style="min-width:200px">{{p.dateEcheanceFP4}}</td>
+        <td style="min-width:200px">{{p.montantEcheanceFP5}}</td>
+        <td style="min-width:200px">{{p.dateEcheanceFP5}}</td>
+        <td style="min-width:200px">{{p.observationNonReconaissanceCreance}}</td>
+        <td style="min-width:200px">{{p.dateVisite}}</td>
+        <td style="min-width:200px">{{p.heureVisiteDebut}}</td>
+        <td style="min-width:200px">{{p.heureVisiteFin}}</td>
+        <td style="min-width:200px">{{p.tel1NC}}</td>
+        <td style="min-width:200px">{{p.tel2NC}}</td>
+        <td style="min-width:200px">{{p.faxNC}}</td>
+        <td style="min-width:200px">{{p.adresseNC}}</td>
+        <td style="min-width:200px">{{p.observationIncapacite}}</td>
+
+
+
+
+
+      </tr>
+    </ng-template>
+  </p-table>
+  </div>
+
+</p-fieldset>
+<p-fieldset legend="Download Documents ✔️">
+
+
+  <p-table [value]="listdocument" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+
+<tr>
+      <th>ID</th>
+      <th>ID Dossier</th>
+      <th>Name </th>
+      <th>Type Fichier</th>
+      <th>Download</th>
+    </tr>
+  </ng-template>
+      <!--afficher un tableau avec la boucle for-->    <ng-template pTemplate="body" let-v>
+        <tr>
+      <td>{{v.id}}</td>
+      <td>{{v.numDossier}}</td>
+      <td>{{v.name}}</td>
+      <td>{{v.type}}</td>
+      <td> <i (click)="downloadImage(v.name)" style="font-size: 20px;" class="pi pi-download"></i></td>
+
+    </tr>
+  </ng-template>
+</p-table>
+
+</p-fieldset>

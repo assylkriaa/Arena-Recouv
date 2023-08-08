@@ -1,0 +1,52 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+
+
+<p-fieldset legend="Action 📰" >
+       <!--<a target="_blank" (click)="downloadCSV()" href="http://localhost:8081/RecouvGTI/client/download/"><i class='fa-solid fa-file-csv'>  Download Actions CSV</i></a>-->
+       <div class="card">
+        <p-toolbar styleClass="mb-4">
+            <ng-template pTemplate="right">
+                <button  pButton pRipple label="Export as CSV" icon="pi pi-upload" class="p-button-help"(click)="exportToCsv()"></button>
+            </ng-template>
+        </p-toolbar>
+        <p-table [value]="actionlist" responsiveLayout="scroll" [rows]="6" [paginator]="true" >
+            <ng-template pTemplate="header">
+                <tr>
+                    <td>ID Action</td>
+                    <td>ID Client</td>
+                    <td>Agent</td>
+                    <td>Date Action</td>
+                    <td>Num° Dossier</td>
+                    <td>Observation</td>
+                    <td>Action</td>
+                    
+                </tr>
+            </ng-template>
+                <!--afficher un tableau avec la boucle for-->
+                <ng-template pTemplate="body" let-a>
+                    <tr>
+    
+                    <td>{{a.idAction}}</td>
+                    <td>{{a.idClient}}</td>
+                    <td>{{a.agent}}</td>
+                    <td>{{a.date}}</td>
+                    <td>{{a.numDossier}}</td>
+                    <td>{{a.observation}}</td>
+                    <td>{{a.idNom| idnom| async}}</td>
+                    <!--<td>{{getMarchelibelle(getClientmarche(p.idClient))}} </td>&nbsp;-->
+                    <!--<td>  {{ clients | marchepipe:clients:listmarche }}</td> -->
+                    <!--<td>{{ getClientmarche(a.idClient) | marchepipe| async }}</td>-->
+                    
+                   
+                    
+    
+                </tr>
+            </ng-template>
+            </p-table>
+            
+        </div>
+   
+</p-fieldset>

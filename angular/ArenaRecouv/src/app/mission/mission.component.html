@@ -1,0 +1,207 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+<p-fieldset legend="injonctions de payer et Ordonnances sur requetes(Missions) ⚖️">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+
+
+
+
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="cli">CLI:</label>
+                        <br>
+                        <input pInputText type="text" id="cli" [(ngModel)]="ms.idClient" [(ngModel)]="idClient"
+                            name="client" (input)="onIdClientSelectionChange()" style="height: 50px;">
+                    </div>
+                    <br> <label for="idMission">Mission :</label>
+                    <div style="display: flex; align-items: center;">
+                       
+                        <br>
+                        <input style="height: 50px; width: 100px; margin-left: 0px;" pInputText type="number" id="idMission"
+                            [(ngModel)]="selectedmission" [(ngModel)]="ms.idMission" name="idMission">
+                        <select style="height: 50px; width: 100px; margin-left: 10px;" class="form-select" id="idMission"
+                            [(ngModel)]="ms.idMission" [(ngModel)]="selectedmission"
+                            (ngModelChange)="onMissionSelectionChange()" name="idMission">
+                            <option *ngFor="let missio of missions" [value]="missio">{{ missio }}</option>
+                        </select>
+                    </div>
+                  
+                    <br>
+                    <div>
+                        <label for="natureAss">Nature d’assignations:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="natureAss" [(ngModel)]="ms.natureAss" #natureAss="ngModel"
+                            name="natureAssurance">
+                            <option value="Injonctions de Payer">Injonctions de Payer</option>
+                            <option value="ordonnances sur requêtes">ordonnances sur requêtes</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montant">Date Transs:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText type="date" name="dateTransmission"
+                            id="dateTransmission" #dateTransmission="ngModel" [(ngModel)]="ms.dateTransmission">
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="nom">Nom Prenom:</label>
+                        <br>
+                        <input pInputText type="text" id="nom" #nomPrenom="ngModel" [(ngModel)]="ms.nomPrenom"
+                            name="nom" value="{{client.nomPrenom}}">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="typeMission">Type Mission:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="typeMission"
+                            [(ngModel)]="ms.typeMission" #typeMission="ngModel" name="typeMission">
+                            <option value="typeMission1">typeMission 1</option>
+                            <option value="typeMission2">typeMission 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="typePrestataire">Type Presta:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="typePrestataire"
+                            [(ngModel)]="ms.typePrestataire" #typePrestataire="ngModel" name="typePrestataire">
+                            <option value="typePrestataire1">typePrestataire 1</option>
+                            <option value="typePrestataire2">typePrestataire 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+                    <br>
+
+                </div>
+                <div class="col-md">
+
+                    <div>
+                        <label for="numCpt">N°Cpt:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="numCpt"
+                            [(ngModel)]="ms.ncpt" #ncpt="ngModel" name="numCompte">
+                            <option *ngFor="let compte of comptes" [value]="compte.numCompte">{{
+                                compte.numCompte }}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="numAff">Affaire :</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="numAff"
+                            [(ngModel)]="ms.idAffaire" name="numAff">
+                            <option *ngFor="let oldNumAffaire of oldNumAffaires" [value]="oldNumAffaire">{{
+                                oldNumAffaire }}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="prestataire">Prestataire:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="prestataire"
+                            [(ngModel)]="ms.prestataire" #prestataire="ngModel" name="prestataire">
+                            <option value="prestataire1">Avocat 1</option>
+                            <option value="prestataire2">Avocat 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <br>
+    <p-divider></p-divider>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="resultat">Resultat:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="resultat" [(ngModel)]="ms.resultat" name="resultat">
+                            <option value="resultat1">resultat 1</option>
+                            <option value="resultat2">resultat 2</option>
+                        </select>
+
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div class="col-md">
+                    <div>
+                        <label for="sort">Sort:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="sort" [(ngModel)]="ms.sort" #sort="ngModel" name="sort">
+                            <option value="sort1">sort 1</option>
+                            <option value="sort2">sort 2</option>
+                        </select>
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div class="col-md">
+                    <div>
+                        <label for="cli">Date:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText  type="date" id="date" #dateJugement="ngModel"
+                            [(ngModel)]="ms.date" name="date">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+    </div>
+    <p-divider></p-divider>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+
+                    <div>
+                        <label for="montant">Montant :</label>
+                        <br>
+                        <input pInputText type="number" name="montant" id="montant" #montant="ngModel"
+                            [(ngModel)]="ms.montant">
+                    </div>
+                    
+                </div>
+                    <br>
+                    <div class="col-md">
+                    <div>
+                        <label for="observation">Observation:</label>
+                        <br>
+                        <textarea pInputText type="text" name="observation" id="observation" #observation="ngModel"
+                            [(ngModel)]="ms.observation"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <br>
+        <div class="d-flex" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="row">
+                <div class="col">
+                    <button pButton (click)="resetForm()">Initialiser</button> &nbsp;&nbsp;
+                </div>
+                <div class="col">
+                    <button pButton (click)=" validerMission()">valider</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</p-fieldset>

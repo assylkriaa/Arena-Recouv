@@ -1,0 +1,218 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+<p-fieldset legend="injonctions de payer et Ordonnances sur requetes(affaires) ⚖️">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+
+
+
+
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="cli">Dossier iD:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText type="text" id="cli" [(ngModel)]="selectedIdDossier" name="client"
+                            (input)="onIdDossierSelectionChange()">
+                    </div>
+
+                    <div>
+                        <label for="nom">Nom Prenom:</label>
+                        <input style="height: 50px; width: 200px;" pInputText type="text" id="nom" #nomPrenom="ngModel" [(ngModel)]="aff.nomPrenom" name="nom">
+                    </div>
+
+
+
+                    <div>
+                        <label for="numCpt">N°Cpt:</label>
+                        <select style="height: 50px; width: 200px;"  class="form-select" id="numCpt" [(ngModel)]="aff.ncpt" #ncpt="ngModel" name="numCompte">
+                            
+                            <option *ngFor="let compte of comptes" [value]="compte">{{ compte }}</option>
+                            <!-- Add any additional options or logic based on your requirements -->
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="affaire">Affaire:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="affaire" [(ngModel)]="aff.affaire" #affaire="ngModel" name="affaire">
+     
+                            <option value="affaire1">Affaire 1</option>
+                            <option value="affaire2">Affaire 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="natureAss">Nature Assi:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="natureAss" [(ngModel)]="aff.natureAss" #natureAss="ngModel" name="natureAssurance">
+                            <option value="Injonctions de Payer">Injonctions de Payer</option>
+                            <option value="ordonnances sur requêtes">ordonnances sur requêtes</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="juridication">Juridiction:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="juridication" [(ngModel)]="aff.juridiction" #juridiction="ngModel"
+                            name="juridiction">
+                            <option value="juridiction1">Juridiction 1</option>
+                            <option value="juridiction2">Juridiction 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="avocat">Avocat:</label>
+                        <br>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="avocat" [(ngModel)]="aff.avocat" #avocat="ngModel" name="avocat">
+                            
+                            <option value="avocat1">Avocat 1</option>
+                            <option value="avocat2">Avocat 2</option>
+                            <!-- Ajoutez d'autres options selon vos besoins -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="montant">Montant:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;"  pInputText type="number" name="montantImp" id="montantImp" #montantImp="ngModel"
+                            [(ngModel)]="aff.montantImp">
+                    </div>
+                    <div>
+                        <label for="montant">Date Transs:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText  type="date" name="dateTransmission" id="dateTransmission" #dateTransmission="ngModel"
+                            [(ngModel)]="aff.dateTransmission">
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <p-divider></p-divider>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="cli">Date Audience:</label>
+                        <br>
+                        <input  style="height: 50px; width: 200px;" pInputText type="date" id="dateAudience" #dateAudience="ngModel" [(ngModel)]="aff.dateAudience"
+                            name="dateAudience">
+                    </div>
+                    <!--
+                        <div>
+                            <label for="numAffaire">Numéro d'affaire:</label>
+                            <select id="numAffaire" [(ngModel)]="aff.idAffaire" name="idAffaire" required>
+                                <option value="">Sélectionner une ancienne numérotation d'affaire</option>
+                                <option *ngFor="let oldNumAffaire of oldNumAffaires" [value]="oldNumAffaire">{{
+                                    oldNumAffaire }}</option>
+                            </select>
+                            <input type="number" #idAffaire="ngModel" id="newNumAffaire" [(ngModel)]="aff.idAffaire" name="newNumAffaire">
+                        </div> -->
+                    <div>
+                        <label for="numAffaire">Numéro d'affaire:</label>
+                        <div style="display: flex; align-items: center;">
+                        <select style="height: 50px; width: 100px; margin-left: 0px;"  class="form-select" id="numAffaire" [(ngModel)]="selectedAffaireId" name="idAffaire"
+                            (ngModelChange)="onAffaireSelectionChange()">
+                            <option *ngFor="let oldNumAffaire of oldNumAffaires" [value]="oldNumAffaire">{{
+                                oldNumAffaire }}</option>
+                        </select>
+                        <input style="height: 50px; width: 100px; margin-left: 10px;" pInputText type="number" id="newNumAffaire" [(ngModel)]="selectedAffaireId" name="newNumAffaire">
+                    </div>
+                </div>
+
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="tribunal">Tribunal:</label>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="tribunal" [(ngModel)]="aff.tribunal" #tribunal="ngModel" name="tribunal">
+                            <option value="tribunal1">tribunal 1</option>
+                            <option value="tribunal2">tribunal 2</option>
+                        </select>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md">
+                    <div>
+                        <label for="localite">localite:</label>
+                        <select style="height: 50px; width: 200px;" class="form-select" id="localite" [(ngModel)]="aff.localite" #localite="ngModel" name="localite">
+                            <option value="localite1">localite 1</option>
+                            <option value="localite2">localite 2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <p-divider></p-divider>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="cli">Date jugement:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText type="date" id="dateJugement" #dateJugement="ngModel" [(ngModel)]="aff.dateJugement"
+                            name="dateJugement">
+                    </div>
+                    <div>
+                        <label for="montant">Montant Pr:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText type="number" name="mntPr" id="mntPr" #mntPr="ngModel" [(ngModel)]="aff.mntPr">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="dispositif">Dispositif:</label>
+                        <br>
+                        <select  style="height: 50px; width: 200px;" class="form-select" id="dispositif" [(ngModel)]="aff.dispositif" #dispositif="ngModel" name="dispositif">
+                            <option value="dispositif1">dispositif 1</option>
+                            <option value="dispositif2">dispositif 2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="mntIntr">Montant Intr:</label>
+                        <br>
+                        <input style="height: 50px; width: 200px;" pInputText type="number" name="mntIntr" id="mntIntr" #mntIntr="ngModel" [(ngModel)]="aff.mntIntr">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="mntJugement">Montant jugement:</label>
+                        <input style="height: 50px; width: 200px;" pInputText type="number" name="mntJugement" id="mntJugement" #mntJugement="ngModel"
+                            [(ngModel)]="aff.mntJugement">
+                    </div>
+                    <div>
+                        <label for="mntAutres">Autres Montant:</label>
+                        <input style="height: 50px; width: 200px;" pInputText type="number" name="mntAutres" id="mntAutres" #mntAutres="ngModel"
+                            [(ngModel)]="aff.mntAutres">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="d-flex" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="row">
+                <div class="col">
+                    <button pButton (click)="initializeFields()">Initialiser</button>&nbsp;&nbsp;
+                </div>
+                <div class="col">
+                <button pButton (click)="valideraffaire()">valider</button>
+            </div>
+            </div>
+        </div>
+    </div>

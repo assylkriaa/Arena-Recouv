@@ -1,0 +1,245 @@
+
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+<div class="card">
+
+<p-fieldset legend="Recherche Multicriteres 🔎" >
+   
+    <form  #m="ngForm"  >
+        <div class="grid">
+            <div class="field col-12 md:col-6">
+             
+             
+                    <div class="col-md">
+
+                    <label class="col-1" for="float-input"  >Client ID:</label>
+                    <input  style="height: 50px; width: 200px;" type="number" pInputText  name="idClient" id="idClient" #idClient="ngModel" [(ngModel)]="rech.idClient ">
+                 
+             
+              &nbsp;
+                <label class="col-1">Agence:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Agency" optionValue="id" [options]=listagences [(ngModel)]="rech.agence" optionLabel="libelle"></p-dropdown>
+             
+          
+                
+                &nbsp;
+                <label class="col-1">Marche:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Marche" optionValue="id" [options]=listmarche [(ngModel)]="rech.marche" optionLabel="libelle"></p-dropdown>
+                
+         
+                &nbsp;
+              
+                <label class="col-1"> type dossier:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Dossier Type" optionValue="id" [options]=listtypedossier [(ngModel)]="rech.typeDossier" optionLabel="libelle"></p-dropdown>
+
+            
+            </div>
+            <br>
+                <div >
+     
+                    <label class="col-1">Jours SDB du:</label>
+                    <input style="height: 50px; width: 200px;" pInputText type="number" name="jourSdbDu" id="jourSdbDu" #jourSdbDu="ngModel" [(ngModel)]="rech.jourSdbDu ">
+               
+                    &nbsp;
+               
+           
+                    <label class="col-1">Jours IMP du:</label>
+                    <input style="height: 50px; width: 200px;" pInputText type="number" name="jourImpDu" id="jourImpDu" #jourImpDu="ngModel" [(ngModel)]="rech.jourImpDu ">
+                
+            
+       
+              <!-- 2 -->
+              &nbsp;
+                <label class="col-1" >Region:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Region" optionValue="id" [options]=listRegions [(ngModel)]="rech.region" optionLabel="libelle"></p-dropdown>
+
+
+               
+                &nbsp;
+               
+                <label class="col-1">Groupe:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Group" optionValue="id" [options]=listgroupes [(ngModel)]="rech.groupe" optionLabel="libelle"></p-dropdown>
+
+              
+            </div>
+            <br>
+            <div >
+                <label class="col-1">Segement:</label>
+                <p-dropdown style="height: 50px; width: 200px;" placeholder="Select a Segment" optionValue="id" [options]=listsegements [(ngModel)]="rech.segment" optionLabel="libelle"></p-dropdown>
+                &nbsp;
+                <label class="col-1">Class:</label>
+                <p-dropdown style="height: 50px; width: 250px;" placeholder="Select a Class" optionValue="code"  [options]="segs" [(ngModel)]="rech.classeFinal" optionLabel="name"></p-dropdown>
+       
+                &nbsp;
+            
+            
+                
+                    <label class="col-1">Jours SDB Au:</label>
+                    <input style="height: 50px; width: 200px;" pInputText type="number" name="jourSdbAu" id="jourSdbAu" #jourSdbAu="ngModel" [(ngModel)]="rech.jourSdbAu ">
+              
+                    &nbsp;
+               
+                
+                    <label class="col-1">Jours Imp Au:</label>
+                    <input style="height: 50px; width: 200px;" pInputText type="number" name="jourImpAu" id="jourImpAu" #jourImpAu="ngModel" [(ngModel)]="rech.jourImpAu ">
+                
+            </div>
+        </div>
+
+        <br>
+      
+        <div style="text-align:center"> 
+            <button pButton  style=" font-size: 20px; text-align: center; display: inline-block; color: white;width: 200px; height: 50px; font-weight: bold;" (click)="recherche()">valider</button>
+        </div>
+    </div>
+   
+    </form>
+
+   </p-fieldset>
+   <!--
+<div class="container">
+    <div class="table-responsive">
+        <table class="table " style="width: 100% ">
+            <tr class="tortor">
+                <td>Num° Dossier</td>
+                <td>ID Client</td>
+                <td>Nom Prenom</td>
+                <td>Region</td>
+                <td>Particulier</td>
+                <td>Groupe</td>
+                <td>Segment</td>
+                <td>Marche</td>
+                <td>Classe IMP</td>
+                <td>Classe Final</td>
+                <td>Type Dossier</td>
+                <td>Entre CTX</td>
+                <td>Sortie CTX</td>
+                <td>Entre Recouv</td>
+                <td>Sortie Recouv</td>
+                <td>Encours Global</td>
+                <td>Mnt IMP</td>
+                <td>jour(s) IMP</td>
+                <td>jour(s) SDB</td>
+                <td>Mnt SDB</td>
+                <td>Phase</td>
+
+            </tr>
+            <tr *ngFor="let a of listrecherche ">
+              
+
+                <td>{{a.numDossier}}</td>
+                <td>{{a.idClient}}</td>
+                <td>{{getClientNomPrenom(a.idClient) }}</td>
+                <td>{{getRegionlibelle(getClientregion(a.idClient))}}</td>
+
+                <td>{{getClientparticulier(a.idClient)}}</td>
+                <td>{{getGroupelibelle(getClientgroupe(a.idClient))}}</td>
+                <td>{{getSeglibelle(getClientsegment(a.idClient))}}</td>
+             
+                <td>{{ getClientmarche(a.idClient) | marchepipe| async }}</td>
+                <td>{{a.classeIMP}}</td>
+                <td>{{a.classeFinal}}</td>
+                <td>{{a.typeDossier}}</td>
+                <td>{{a.entreCTX}}</td>
+                <td>{{a.sortieCTX}}</td>
+                <td>{{a.entreRecouv}}</td>
+                <td>{{a.sortieRecouv}}</td>
+                <td>{{a.encoursGlobal}}</td>
+                <td>{{a.mntImpaye}}</td>
+                <td>{{a.jourimp}}</td>
+                <td>{{a.joursdb}}</td>
+                <td>{{a.mntSdb}}</td>
+                <td>{{a.Phase}}</td>
+                
+
+            </tr>
+        </table>
+    </div>
+</div>-->
+
+<p-fieldset legend="Liste Des dossiers 🗂">
+
+   
+        <div class="table-responsive">
+            <p-table [value]="listrecherche" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                    <th>Num° Dossier</th>
+                    <th>ID Client</th>
+                    <th>Nom Prenom</th>
+                    <th>Region</th>
+                    <th>Particulier</th>
+                    <th>Groupe</th>
+                    <th>Segment</th>
+                    <th>Marche</th>
+                    <th>Classe IMP</th>
+                    <th>Classe Final</th>
+                    <th>Type Dossier</th>
+                    <th>Entre CTX</th>
+                    <th>Sortie CTX</th>
+                    <th>Entre Recouv</th>
+                    <th>Sortie Recouv</th>
+                    <th>Encours Global</th>
+                    <th>Mnt IMP</th>
+                    <th>jour(s) IMP</th>
+                    <th>Mnt SDB</th>
+                    <th>jour(s) SDB</th>
+                    <th>Phase</th>
+                    <th>Consulter</th>
+                    <th>Contact</th>
+                    <th>Pdf</th>
+
+                </tr>
+            </ng-template>
+                <!--afficher un tableau avec la boucle for-->
+                <ng-template pTemplate="body" let-p>
+                    <tr>
+             
+                    <!-- <div *ngIf="p.price <= condition "> -->
+
+                    <td>{{p.numDossier}}</td>
+                    <td #idClient>{{p.idClient}}</td>
+                    <td>{{getClientNomPrenom(p.idClient) }}</td>
+                    <td>{{getRegionlibelle(getClientregion(p.idClient))}}</td>
+
+                    <td>{{getClientparticulier(p.idClient)}}</td>
+                    <td>{{getGroupelibelle(getClientgroupe(p.idClient))}}</td>
+                    <td>{{getSeglibelle(getClientsegment(p.idClient))}}</td>
+                    <!--<td>{{getMarchelibelle(getClientmarche(p.idClient))}} </td>&nbsp;-->
+                    <!--<td>  {{ clients | marchepipe:clients:listmarche }}</td> -->
+                    <td>{{ getClientmarche(p.idClient) | marchepipe| async }}</td>
+                    <td>{{p.classeIMP}}</td>
+                    <td>{{p.classeFinal}}</td>
+                    <td>{{getTypedossier( p.typeDossier)}}</td>
+
+                    <td>{{p.entreCTX}}</td>
+                    <td>{{p.sortieCTX}}</td>
+                    <td>{{p.entreRecouv}}</td>
+                    <td>{{p.sortieRecouv}}</td>
+                    <td>{{p.encoursGlobal}}</td>
+                    <td>{{p.mntImpaye}}</td>
+                    <td>{{p.jourimp}}</td>
+                    <td>{{p.mntSdb}}</td>
+                    <td>{{p.joursdb}}</td>
+                    <td>{{p.phase}}</td>
+
+                    <td><i style="font-size: 30px;" class="pi pi-eye" [routerLink]="['/dossierDetail',p.numDossier]"></i>
+                    </td>
+                    <td><i style="font-size: 30px;" class=" pi pi-search-plus" [routerLink]="['/contactClient',p.numDossier]"></i></td>
+                    <td>
+                        <!--<a class="bi bi-file-pdf" target="_blank" (click)="reportPDF(p.idClient)">PDF</a>-->
+                        <a target="_blank" (click)="reportPDF(p.idClient)" href="http://localhost/report/{{p.idClient}}info.pdf"><i style="font-size: 30px;" class="pi pi-file-pdf"></i></a>
+                      </td>
+                      
+
+
+                </tr>
+            </ng-template>
+            </p-table>
+        </div>
+
+
+</p-fieldset>
+</div>

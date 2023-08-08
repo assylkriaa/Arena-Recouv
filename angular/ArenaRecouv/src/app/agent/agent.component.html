@@ -1,0 +1,100 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br>
+
+
+<p-fieldset legend="Agents 👷" >
+    <div style="display: flex; flex-direction: column; align-items: center;">
+
+        <form (ngSubmit)="validerAgent()" #agentForm="ngForm">
+            <!--<div class="form-group">
+                <label for="idAgent">ID AGENT:</label>
+                <input type="text" class="form-control" id="idAgent" [(ngModel)]="agent.idAgent" name="idAgent" (input)="onIdAgentChange()">
+            </div>-->
+        
+                <label for="idAgent">ID AGENT:</label>
+                <select class="form-select" id="idAgent" [(ngModel)]="iii" [(ngModel)]="agent.idAgent" 
+                (ngModelChange)="onIdAgentChange()" name="idAgent">
+                <option value="" disabled>Sélectionner un Agent</option>
+                <option *ngFor="let ag of agenteyy" [value]="ag.idAgent">{{ ag.idAgent }}</option>
+            </select>
+           
+            <br>
+            <div class="form-group">
+                <label for="nomPrenom">Nom et prénom:</label>
+                <input type="text" class="form-control" id="nomPrenom" [(ngModel)]="agent.nomPrenom" name="nomPrenom"
+                    disabled required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="profil">Profil:</label>
+                <select class="form-select" id="profil" [(ngModel)]="agent.profil" name="profil">
+                    <option value="COM">Commercial</option>
+                    <option value="AM">Amiable</option>
+                    <option value="REC">Recouvrement</option>
+                    <option value="CTX">Contentieux</option>
+                </select>
+
+            </div>
+            <br>
+          <!--
+            <div class="form-group">
+                <label for="selectedCities">Segments:</label>&nbsp;
+                <p-multiSelect style="color: white;" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"
+                    name="selectedCities"></p-multiSelect>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="selectedRegions">Régions:</label>&nbsp;
+                <p-multiSelect style="color: white;" [options]="regions" [(ngModel)]="selectedRegions"
+                    optionLabel="name" name="selectedRegions"></p-multiSelect>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="selectedAgences">Agences:</label>&nbsp;
+                <p-multiSelect style="color: white;" [options]="agences" [(ngModel)]="selectedAgences"
+                    optionLabel="name" name="selectedAgences"></p-multiSelect>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="selectedMarches">Marchés:</label>&nbsp;
+                <p-multiSelect style="color: white;" [options]="marches" [(ngModel)]="selectedMarches"
+                    optionLabel="name" name="selectedMarches"></p-multiSelect>
+            </div>-->
+            <div class="form-group">
+                <label for="selectedCities">Segments:</label>&nbsp;
+                <br>
+                <p-multiSelect [style]="{'width': '100%' ,'height': '40px' }" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"
+                  name="selectedCities" [ngModelOptions]="{ standalone: true }"></p-multiSelect>
+              </div>
+              
+              <div class="form-group">
+                <label for="selectedRegions">Régions:</label>&nbsp;
+                <br>
+                <p-multiSelect [style]="{'width': '100%' ,'height': '40px' }" [options]="regions" [(ngModel)]="selectedRegions" optionLabel="name"
+                  name="selectedRegions" [ngModelOptions]="{ standalone: true }"></p-multiSelect>
+              </div>
+              
+              <div class="form-group">
+                <label for="selectedAgences">Agences:</label>&nbsp;
+                <br>
+                <p-multiSelect [style]="{'width': '100%' ,'height': '40px' }" [options]="agences" [(ngModel)]="selectedAgences" optionLabel="name"
+                  name="selectedAgences" [ngModelOptions]="{ standalone: true }"></p-multiSelect>
+              </div>
+              
+              <div class="form-group">
+                <label for="selectedMarches">Marchés:</label>&nbsp;
+                <br>
+                <p-multiSelect [style]="{'width': '100%' ,'height': '40px' }"  [options]="marches" [(ngModel)]="selectedMarches" optionLabel="name"
+                  name="selectedMarches" [ngModelOptions]="{ standalone: true }"></p-multiSelect>
+              </div>
+              
+        
+           
+        </form>
+        <br>
+        <br>
+        <button pButton  (click)="validerAgent()">Valider</button>
+    </div>
+    </p-fieldset>

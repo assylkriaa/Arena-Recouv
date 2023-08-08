@@ -1,0 +1,110 @@
+<app-header></app-header><section id="appointment" class="appointment section-bg" style="text-align: center;">
+    <div class="container">
+        <h1>Gestion Des Risques</h1>
+        <br>
+      <p-divider></p-divider>
+        <h3>Risque</h3>
+        <br>
+        <form #pp="ngForm">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div>
+                        <label for="idRisque">ID Risque :</label>
+                        <br>
+                        <input type="number" id="idRisque" name="idRisque" [(ngModel)]="idR"  [(ngModel)]="r.idRisque" 
+                        (input)="onIdSelectionChange()">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="idDossier">ID Dossier :</label>
+                        <br>
+                        <select name="idDossier" id="idDossier" [(ngModel)]="r.numDossier">
+                            <option value="">Sélectionnez un Dossier</option>
+                            <option *ngFor="let dossier of dossiers" [value]="dossier">{{ dossier }}</option>
+                          </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="agence">Agence :</label>
+                        <br>
+                        <select name="agence" id="agence" [(ngModel)]="r.agence">
+                            <option value="">Sélectionnez une agence</option>
+                            <option *ngFor="let agence of listagences" [value]="agence.id">{{ agence.libelle }}</option>
+                          </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montantCreanceEntree">Montant Creance Entree:</label>
+                        <br>
+                        <input type="number" id="montantCreanceEntree" name="montantCreanceEntree" [(ngModel)]="r.montantCreanceEntree" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tauxIRmarge">Taux IR Marge:</label>
+                        <br>
+                        <input type="number" id="tauxIRmarge" name="tauxIRmarge" [(ngModel)]="r.tauxIRmarge" >
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="te">Total Engagement:</label>
+                        <br>
+                        <input type="number" id="te" name="te" [(ngModel)]="r.totalEngagement">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tauxICmarge">Taux IC marge:</label>
+                        <br>
+                        <input type="number" id="tauxICmarge" name="tauxICmarge" [(ngModel)]="r.tauxICmarge" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montantICEntrée">Montant IC Entrée:</label>
+                        <br>
+                        <input type="number" id="montantICEntrée" name="tauxICmontantICEntréemarge" [(ngModel)]="r.montantICEntree" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montantFrais">Montant Frais:</label>
+                        <br>
+                        <input type="number" id="montantFrais" name="montantFrais" [(ngModel)]="r.montantFrais" >
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div>
+                        <label for="np">Nature Produit:</label>
+                        <br>
+                        <input type="text" id="np" name="np" [(ngModel)]="r.natureProduit">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montantRecupere">Montant Recupere:</label>
+                        <br>
+                        <input type="number" id="montantRecupere" name="montantRecupere" [(ngModel)]="r.montantRecupere" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tauxIndexe">Taux Indexe:</label>
+                        <br>
+                        <input type="number" id="tauxIndexe" name="tauxIndexe" [(ngModel)]="r.tauxIndexe" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="montantRestantDut">Montant Restant Dut:</label>
+                        <br>
+                        <input type="number" id="montantRestantDut" name="montantRestantDut" [(ngModel)]="r.montantRestantDut" >
+                    </div>
+                    <br>
+                    <div>
+                        <label for="observation">Observation:</label>
+                        <br>
+                        <input type="text" id="observation" name="observation" [(ngModel)]="r.observation" >
+                    </div>
+                </div>
+                
+            </div>
+            <button  class="btn-primary" style="width: 100px; height: 50px;" (click)="valider()">valider</button>
+        </form>
+
+    </div>
+</section>

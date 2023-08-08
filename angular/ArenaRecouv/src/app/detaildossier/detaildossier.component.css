@@ -1,0 +1,19 @@
+
+td {
+    padding: 15px; /* Apply padding to create space within each cell */
+  }
+
+  .center {
+    margin: auto;
+    width: 80%;
+    border: 3px solid rgb(85, 141, 202);
+    padding: 10px;
+  }
+
+  .ok{
+    width: 5%;
+    padding: 12px 20px;
+    border: 3px solid rgb(85, 141, 202);
+    margin: 8px 0;
+    box-sizing: border-box;
+    }

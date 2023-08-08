@@ -1,0 +1,935 @@
+<app-header></app-header><br>
+<br>
+<br>
+<br><!--
+<section id="appointment" class="appointment section-bg">
+
+    <div class="container">
+        <div class="container px-4 py-5" id="featured-3">
+            <h2 class="pb-2 border-bottom">Dossier Detail</h2>
+            <form ngForm #f="ngForm">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Num° Dossier</h3>
+                        <p>{{p.numDossier}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>ID Client</h3>
+                        <p>{{p.idClient}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Nom Prenom</h3>
+                        <p>{{getClientNomPrenom(p.idClient ?? '')}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Région</h3>
+                        <p>{{getRegionlibelle(getClientregion(p.idClient ?? ''))}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Client Particulier</h3>
+                        <p>{{getClientparticulier(p.idClient ?? '')}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Groupe</h3>
+                        <p>{{getGroupelibelle(getClientgroupe(p.idClient ?? ''))}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Segment</h3>
+                        <p>{{getSeglibelle(getClientsegment(p.idClient ?? ''))}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#collection"></use>
+                            </svg>
+                        </div>
+                        <h3>Marché</h3>
+                        <p>{{getMarchelibelle(getClientmarche(p.idClient ?? ''))}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                        </div>
+                        <h3>Classe IMP</h3>
+                        <p>{{p.classeIMP}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Classe Final</h3>
+                        <p>{{p.classeFinal}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Type Dossier</h3>
+                        <p>{{p.typeDossier}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <tr>
+                            <td>
+                                <h3>Jour SDB</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{p.joursdb}} &nbsp;/</td>
+                        </tr>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <tr>
+                            <td>
+                                <h3>Jour IMP </h3>
+                            </td>
+                            <br>
+                        </tr>
+                        <tr>
+                            <td>{{p.jourimp}} &nbsp;/</td>
+
+                        </tr>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Entre CTX</h3>
+                        <p>{{p.entreCTX}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Sortie CTX</h3>
+                        <p>{{p.sortieCTX}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Entre Recouvrement</h3>
+                        <p>{{p.entreRecouv}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Sortie Recouvrement</h3>
+                        <p>{{p.sortieRecouv}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Encours Global</h3>
+                        <p>{{p.encoursGlobal}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Montant Impaye</h3>
+                        <p>{{p.mntImpaye}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Jour Impaye</h3>
+                        <p>{{p.jourimp}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Montant SDB</h3>
+                        <p>{{p.mntSdb}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Jour SDB</h3>
+                        <p>{{p.joursdb}}</p>
+                    </div>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <h3>Phase</h3>
+                        <p>{{p.phase}}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p-divider></p-divider>
+        <h2 class="pb-2 border-bottom">List Compte Client</h2>
+        <br>
+        <table class="table " style="width: 100% ">
+
+            <tr class="tortor">
+                <td>Num° Compte</td>
+                <td>ID Client</td>
+                <td>Agence</td>
+                <td>Montant</td>
+                <td>Type Dossier</td>
+                <td>Montant Impayé</td>
+                <td>Jours Impayé</td>
+                <td>Montant SDB</td>
+                <td>Mnt IMP</td>
+                <td>jour(s) IMP</td>
+                <td>Mnt SDB</td>
+                <td>jour(s) SDB</td>
+                <td>Phase</td>
+
+            </tr>
+
+            
+            <tr *ngFor="let g of comptes ">
+              
+
+                <td>{{g.numCompte }}</td>
+                <td>{{g.idClient}}</td>
+                <td>{{getAgencelibelle(g.agence)}}</td>
+                <td>{{g.montant}}</td>
+                <td>{{getDossierlibelle(g.typeDossier)}}</td>
+                <td>{{g.mntImpaye}}</td>
+                <td>{{g.jrImpaye}}</td>
+                <td>{{g.mntSdb}}</td>
+                <td>{{g.jrSdb}}</td>
+
+
+
+
+            </tr>
+        </table>
+
+    </div>
+-->
+<p-fieldset legend="Contact Client">
+
+    <div class="field col-12 md:col-6">
+
+
+
+
+        <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Num° Dossier:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ p.numDossier }}
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Nom Prenom:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ getClientNomPrenom(p.idClient ?? '') }}
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> ID Client:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ p.idClient }}
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Dossier Type:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ p.typeDossier }}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Jours SDB:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ p.joursdb }}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Jours IMP:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{ p.jourimp }}
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Region:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{getRegionlibelle(getClientregion(p.idClient ?? ''))}}
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Groupe:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{getGroupelibelle(getClientgroupe(p.idClient ?? ''))}}
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Segment:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{getSeglibelle(getClientsegment(p.idClient ?? ''))}}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Class:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.classeFinal}}
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Montant SDB:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.mntSdb}}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Montant IMP:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.mntImpaye}}
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="display: inline-flex; align-items: center; margin-right: 20px;">
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Phase:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.phase}}
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Entre CTX:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.entreCTX}}
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Sortie CTX:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.sortieCTX}}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Entre Recouv:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.entreRecouv}}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Sortie Recouv:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.sortieRecouv}}
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label for="float-input" class="col-3" style="margin-right: 10px;"> Encours Global:</label>
+                <div
+                    [style]="{'width': '9vw', 'border': '1px solid #ced4da', 'padding': '0.75rem 0.75rem', 'background-color': '#ffffff', 'transition': 'background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s', 'color': '#495057', 'border-radius': '6px', 'margin': '0'}">
+                    {{p.encoursGlobal}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</p-fieldset>
+
+<p-fieldset legend="List Compte Client">
+
+    <p-table [value]="comptes" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+
+            <tr>
+                <th>Num° Compte</th>
+                <th>ID Client</th>
+                <th>Agence</th>
+                <th>Montant</th>
+                <th>Type Dossier</th>
+                <th>Montant Impayé</th>
+                <th>Jours Impayé</th>
+                <th>Montant SDB</th>
+                <th>Mnt IMP</th>
+                <th>jour(s) IMP</th>
+                <th>Mnt SDB</th>
+                <th>jour(s) SDB</th>
+                <th>Phase</th>
+
+            </tr>
+
+            <!--afficher un tableau avec la boucle for-->
+        </ng-template>
+        <!--afficher un tableau avec la boucle for-->
+        <ng-template pTemplate="body" let-g>
+            <tr>
+                <td>{{g.numCompte }}</td>
+                <td>{{g.idClient}}</td>
+                <td>{{getAgencelibelle(g.agence)}}</td>
+                <td>{{g.montant}}</td>
+                <td>{{getDossierlibelle(g.typeDossier) }}</td>
+                <td>{{g.mntImpaye}}</td>
+                <td>{{g.jrImpaye}}</td>
+                <td>{{g.mntSdb}}</td>
+                <td>{{g.jrSdb}}</td>
+
+
+
+
+            </tr>
+        </ng-template>
+    </p-table>
+</p-fieldset>
+
+<p-fieldset legend="Compte Rendu" style="text-align:center">
+    <form> <div class="d-flex" style="display: flex; flex-direction: column; align-items: center;" >
+        <div class="row">
+            <div class="col">
+                <label>Agence:</label>
+                <select class="form-select" name="agence" id="agence" [(ngModel)]="cr.agence">
+                    <option value="">Sélectionnez une agence</option>
+                    <option *ngFor="let agence of listagences" [value]="agence.id">{{ agence.libelle }}</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Client Contacté:</label>
+                <select class="form-select" name="clientContacteAvec" id="clientContacteAvec"
+                    #clientContacteAvec="ngModel" [(ngModel)]="cr.clientContacteAvec">
+                    <option value="">Sélectionnez un client</option>
+                    <option value="tel">tel</option>
+                    <option value="fax">fax</option>
+                    <option value="mail">mail</option>
+                    <!-- Ajoutez d'autres options de clients -->
+                </select>
+            </div>
+
+            
+            <div class="col">
+                <label>Autre Element:</label>
+                <br>
+                <input pInputText required type="text" name="autreElement" id="autreElement" placeholder="autreElement"
+                    #autreElement="ngModel" [(ngModel)]="cr.autreElement">
+            </div>
+        </div></div>
+    </form>
+    <br>
+    <br>
+    <input type="radio" name="option" value="Promesse de paiement" [(ngModel)]="selectedOption">Promesse de paiement
+    &nbsp;
+    <input type="radio" name="option" value="Facilité de paiement" [(ngModel)]="selectedOption">Facilité de paiement
+    &nbsp;
+    <input type="radio" name="option" value="Pas de reconnaissance de la créance" [(ngModel)]="selectedOption"> Pas
+    de reconnaissance de la créance &nbsp;
+    <input type="radio" name="option" value="Visite" [(ngModel)]="selectedOption"> Visite &nbsp;
+    <input type="radio" name="option" value="Nouvelles coordonnées" [(ngModel)]="selectedOption"> Nouvelles
+    coordonnées &nbsp;
+    <input type="radio" name="option" value="Incapacité" [(ngModel)]="selectedOption">Incapacité &nbsp;
+    <p-divider></p-divider>
+    <div [ngSwitch]="selectedOption">
+
+
+        <div div *ngSwitchCase="'Promesse de paiement'"
+            style="display: flex; flex-direction: column; align-items: center;">
+            <form #f="ngForm">
+                <div>
+                    <div style="text-align:center">
+                        <input pInputText required type="number" name="montant Reglement" class="form-control"
+                            id="montant Reglement" placeholder="montant Reglement" #montantReglement="ngModel"
+                            [(ngModel)]="cr.montantReglement">
+                    </div>
+                    <br>
+                    <div style="text-align:center">
+                        <p-calendar type="date" class="form-control" name="dateReglement" id="dateReglement"
+                            #dateReglement="ngModel" [(ngModel)]="cr.dateReglement" [showIcon]="true"></p-calendar>
+                    </div>
+                    <br>
+                    <label for="Lieu">Lieu :</label>
+                    <div>
+                        <select class="form-select" name="lieuReglement" id="lieuReglement" #lieuReglement="ngModel"
+                            [(ngModel)]="cr.lieuReglement">
+                            <option value="Tunis">Tunis</option>
+                            <option value="Nabeul">Nabeul</option>
+                            <option value="Sfax">Sfax</option>
+                            <option value="Monastir">Monastir</option>
+                        </select>
+                    </div>
+                    <br>
+
+
+
+                    <div style="text-align:center">
+                        <button pButton [disabled]="!f.valid" (click)="addPromessePaiement()">valide</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div *ngSwitchCase="'Facilité de paiement'" style="display: flex; flex-direction: column; align-items: center;">
+            <form #m="ngForm">
+                <div>
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <label>Montant :</label>
+                            <div style="text-align:center">
+                                <input pInputText required type="number" name="montantFacilitePaiement"
+                                    class="form-control" id="montantFacilitePaiement" placeholder="Montant"
+                                    #montantFacilitePaiement="ngModel" [(ngModel)]="cr.montantFacilitePaiement">
+                            </div>
+                            <br>
+                            <label>Montant Echeance 1:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control" name="montantEcheanceFP1"
+                                    id="montantEcheanceFP1" #montantEcheanceFP1="ngModel"
+                                    [(ngModel)]="cr.montantEcheanceFP1">
+                            </div>
+                            <br>
+                            <label>Montant Echeance 2:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control" name="montantEcheanceFP2"
+                                    id="montantEcheanceFP2" #montantEcheanceFP2="ngModel"
+                                    [(ngModel)]="cr.montantEcheanceFP2">
+                            </div>
+                            <br>
+
+                            <label>Montant Echeance 3:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control" name="montantEcheanceFP3"
+                                    id="montantEcheanceFP3" #montantEcheanceFP3="ngModel"
+                                    [(ngModel)]="cr.montantEcheanceFP3">
+                            </div>
+                            <br>
+                            <label>Montant Echeance 4:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control" name="montantEcheanceFP4"
+                                    id="montantEcheanceFP4" #montantEcheanceFP4="ngModel"
+                                    [(ngModel)]="cr.montantEcheanceFP4">
+                            </div>
+                            <br>
+                            <label>Montant Echeance 5:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control" name="montantEcheanceFP5"
+                                    id="montantEcheanceFP5" #montantEcheanceFP5="ngModel"
+                                    [(ngModel)]="cr.montantEcheanceFP5">
+                            </div>
+                            <br>
+
+
+                        </div>
+                        <br>
+                        <div class="col-md">
+                            <label>Nombre Echeance :</label>
+                            <div style="text-align:center">
+                                <input pInputText type="number" class="form-control"
+                                    name="nombreEcheanceFacilitePaiement" id="nombreEcheanceFacilitePaiement"
+                                    #nombreEcheanceFacilitePaiement="ngModel"
+                                    [(ngModel)]="cr.nombreEcheanceFacilitePaiement">
+
+                            </div>
+                            <br>
+                            <label>Date Echeance 1:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="date" class="form-control" name="dateEcheanceFP1"
+                                    id="dateEcheanceFP1" #dateEcheanceFP1="ngModel" [(ngModel)]="cr.dateEcheanceFP1">
+                            </div>
+                            <br>
+                            <label>Date Echeance 2:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="date" class="form-control" name="dateEcheanceFP2"
+                                    id="dateEcheanceFP2" #dateEcheanceFP2="ngModel" [(ngModel)]="cr.dateEcheanceFP2">
+                            </div>
+                            <br>
+                            <label>Date Echeance 3:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="date" class="form-control" name="dateEcheanceFP3"
+                                    id="dateEcheanceFP3" #dateEcheanceFP3="ngModel" [(ngModel)]="cr.dateEcheanceFP3">
+                            </div>
+                            <br>
+                            <label>Date Echeance 4:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="date" class="form-control" name="dateEcheanceFP4"
+                                    id="dateEcheanceFP4" #dateEcheanceFP4="ngModel" [(ngModel)]="cr.dateEcheanceFP4">
+                            </div>
+                            <br>
+                            <label>Date Echeance 5:</label>
+                            <div style="text-align:center">
+                                <input pInputText type="date" class="form-control" name="dateEcheanceFP5"
+                                    id="dateEcheanceFP5" #dateEcheanceFP5="ngModel" [(ngModel)]="cr.dateEcheanceFP5">
+                            </div>
+                            <br>
+
+                        </div>
+
+                        <div style="text-align:center">
+                            <button pButton [disabled]="!m.valid" (click)="addFacilitePaiement()">valider</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div *ngSwitchCase="'Pas de reconnaissance de la créance'"
+            style="display: flex; flex-direction: column; align-items: center;">
+            <form #g="ngForm">
+                <label>Observation:</label>
+                <div style="text-align:center">
+                    <textarea pInputText class="form-control" placeholder="exemple : ceci est une observation"
+                        name="observationNonReconaissanceCreance" id="observationNonReconaissanceCreance"
+                        #observationNonReconaissanceCreance="ngModel"
+                        [(ngModel)]="cr.observationNonReconaissanceCreance"></textarea>
+                </div>
+                <br>
+
+
+
+                <div style="text-align:center">
+                    <button pButton [disabled]="!g.valid" (click)="addNonReconn()">valide</button>
+                </div>
+            </form>
+        </div>
+        <div *ngSwitchCase="'Visite'" style="display: flex; flex-direction: column; align-items: center;">
+
+            <form #pp="ngForm">
+                <div class="col-md">
+                    <label>Date Visite:</label>
+                    <div style="text-align:center">
+                        <p-calendar type="date" class="form-control" name="dateVisite" id="dateVisite"
+                            #dateVisite="ngModel" [(ngModel)]="cr.dateVisite" [showIcon]="true"></p-calendar>
+                    </div>
+                </div>
+                <br>
+                <label>Heure Debut Visite:</label>
+                <select class="form-select" name="heureVisiteDebut" id="heureVisiteDebut" #heureVisiteDebut="ngModel"
+                    [(ngModel)]="cr.heureVisiteDebut">
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                </select>
+                <br>
+                <label>Heure Fin Visite:</label>
+                <select class="form-select" name="heureVisiteFin" id="heureVisiteFin" #heureVisiteFin="ngModel"
+                    [(ngModel)]="cr.heureVisiteFin">
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                </select>
+
+
+                <br>
+                <div style="text-align:center">
+                    <button pButton [disabled]="!pp.valid" (click)="addVisite()">valider</button>
+                </div>
+            </form>
+        </div>
+        <div *ngSwitchCase="'Nouvelles coordonnées'"
+            style="display: flex; flex-direction: column; align-items: center;">
+            <form #pp="ngForm">
+                <div class="row g-2">
+                    <div class="col-md">
+                        <label>tel1 :</label>
+                        <div style="text-align:center">
+                            <input pInputText type="number" name="tel1NC" class="form-control" id="tel1NC"
+                                placeholder="exemple : 25 xxx xxxx" #tel1NC="ngModel" [(ngModel)]="cr.tel1NC">
+                        </div>
+                        <br>
+                        <label>Fax :</label>
+                        <div style="text-align:center">
+                            <input pInputText type="number" name="faxNC" class="form-control" id="faxNC"
+                                placeholder="exemple : 75 xxx xxxx" #faxNC="ngModel" [(ngModel)]="cr.faxNC">
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="col-md">
+                        <label>tel2 :</label>
+                        <div style="text-align:center">
+                            <input pInputText type="number" name="tel2NC" class="form-control" id="tel2NC"
+                                placeholder="exemple : 25 xxx xxxx" #tel2NC="ngModel" [(ngModel)]="cr.tel2NC">
+                        </div>
+                        <br>
+                        <label>adresse :</label>
+                        <div style="text-align:center">
+                            <input pInputText type="text" name="adresseNC" class="form-control" id="adresseNC"
+                                placeholder="exemple : tunis - ariana .. " #adresseNC="ngModel"
+                                [(ngModel)]="cr.adresseNC">
+                        </div>
+                        <br>
+
+                    </div>
+                    <div style="text-align:center">
+                        <button pButton [disabled]="!pp.valid" (click)="addCord()">valide</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div *ngSwitchCase="'Incapacité'" style="display: flex; flex-direction: column; align-items: center;">
+            <form #g="ngForm">
+                <label>Observation:</label>
+                <div style="text-align:center">
+                    <textarea pInputText class="form-control" placeholder="exemple : ceci est une observation"
+                        name="observationIncapacite" id="observationIncapacite" #observationIncapacite="ngModel"
+                        [(ngModel)]="cr.observationIncapacite"></textarea>
+                </div>
+                <br>
+
+
+
+                <div style="text-align:center">
+                    <button pButton [disabled]="!g.valid" (click)="addInc()">valide</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</p-fieldset>
+
+
+<p-fieldset legend="Histroique Compte Rendu">
+
+    <div class="table-responsive">
+      <p-table [value]="listCompteRendus" [scrollable]="true" scrollHeight="400px">
+        <ng-template pTemplate="header">
+  
+        <tr >
+          <th style="min-width:200px">Num° Compte Rendu</th>
+          <th style="min-width:200px">Num° Dossier</th>
+          <th style="min-width:200px">Date Saisie</th>
+          <th style="min-width:200px">Compte Rendu</th>
+          <th style="min-width:200px" >Utulisateur</th>
+          <th style="min-width:200px">Agence</th>
+          <th style="min-width:200px">client Contacte Avec</th>
+          <th style="min-width:200px">Autre Element</th>
+          <th style="min-width:200px">Type Compte Rendu</th>
+          <th style="min-width:200px">Montant Reglement</th>
+          <th style="min-width:200px">Date Reglement</th>
+          <th style="min-width:200px">Lieu Reglement</th>
+          <th style="min-width:200px">Montant Facilite Paiement</th>
+          <th style="min-width:200px">Nombre Echeance Facilite Paiement</th>
+          <th style="min-width:200px">Montant EcheanceFP1</th>
+          <th style="min-width:200px">Date EcheanceFP1</th>
+          <th style="min-width:200px">Montant EcheanceFP2</th>
+          <th style="min-width:200px">Date EcheanceFP2</th>
+          <th style="min-width:200px">Montant EcheanceFP3</th>
+          <th style="min-width:200px">Date EcheanceFP3</th>
+          <th style="min-width:200px">Montant EcheanceFP4</th>
+          <th style="min-width:200px">Date EcheanceFP4</th>
+          <th style="min-width:200px">Montant EcheanceFP5</th>
+          <th style="min-width:200px">Date EcheanceFP5</th>
+          <th style="min-width:200px">Observation Non Reconaissance Creance</th>
+          <th style="min-width:200px" >Date Visite</th>
+          <th style="min-width:200px">Heure Visite Debut</th>
+          <th style="min-width:200px">heure Visite Fin</th>
+          <th style="min-width:200px">tel1NC</th>
+          <th style="min-width:200px">tel2NC</th>
+          <th style="min-width:200px">faxNC</th>
+          <th style="min-width:200px">adresseNC</th>
+          <th style="min-width:200px">observationIncapacite</th>
+  
+  
+  
+        </tr>
+  
+        <!--afficher un tableau avec la boucle for-->
+        <tr *ngFor="let p of listCompteRendus ">
+          <!-- <div *ngIf="p.price <= condition "> -->
+  
+          <td style="min-width:200px">{{p.numeroCompteRendu}}</td>
+          <td style="min-width:200px">{{p.numDossier}}</td>
+          <td style="min-width:200px">{{p.dateSaisieCompteRendu}}</td>
+          <td style="min-width:200px" >{{p.compteRendu}}</td>
+          <td style="min-width:200px">{{p.utulisateur}}</td>
+          <td style="min-width:200px">{{p.agence}}</td>
+          <td style="min-width:200px">{{p.clientContacteAvec}}</td>
+          <td style="min-width:200px">{{p.autreElement}}</td>
+          <td style="min-width:200px">{{p.typeCompteRendu}}</td>
+          <td style="min-width:200px">{{p.montantReglement}}</td>
+          <td style="min-width:200px">{{p.dateReglement}}</td>
+          <td style="min-width:200px">{{p.lieuReglement}}</td>
+          <td style="min-width:200px">{{p.montantFacilitePaiement}}</td>
+          <td style="min-width:200px">{{p.nombreEcheanceFacilitePaiement}}</td>
+          <td style="min-width:200px">{{p.montantEcheanceFP1}}</td>
+          <td style="min-width:200px">{{p.dateEcheanceFP1}}</td>
+          <td style="min-width:200px">{{p.montantEcheanceFP2}}</td>
+          <td style="min-width:200px">{{p.dateEcheanceFP2}}</td>
+          <td style="min-width:200px">{{p.montantEcheanceFP3}}</td>
+          <td style="min-width:200px">{{p.dateEcheanceFP3}}</td>
+          <td style="min-width:200px">{{p.montantEcheanceFP4}}</td>
+          <td style="min-width:200px">{{p.dateEcheanceFP4}}</td>
+          <td style="min-width:200px">{{p.montantEcheanceFP5}}</td>
+          <td style="min-width:200px">{{p.dateEcheanceFP5}}</td>
+          <td style="min-width:200px">{{p.observationNonReconaissanceCreance}}</td>
+          <td style="min-width:200px">{{p.dateVisite}}</td>
+          <td style="min-width:200px">{{p.heureVisiteDebut}}</td>
+          <td style="min-width:200px">{{p.heureVisiteFin}}</td>
+          <td style="min-width:200px">{{p.tel1NC}}</td>
+          <td style="min-width:200px">{{p.tel2NC}}</td>
+          <td style="min-width:200px">{{p.faxNC}}</td>
+          <td style="min-width:200px">{{p.adresseNC}}</td>
+          <td style="min-width:200px">{{p.observationIncapacite}}</td>
+  
+  
+  
+  
+  
+        </tr>
+      </ng-template>
+    </p-table>
+    </div>
+  
+  </p-fieldset>
+<p-divider></p-divider>
+
+<p-fieldset legend="Upload Documents" > 
+    <div style="display: flex; flex-direction: column; align-items: center;" >
+    <input pInputText class="form-control" type="file" (change)="onFileSelected($event)" accept="/*">
+    <br>
+    <button pButton class="btn btn-primary" (click)="uploadImage()">Upload</button>
+
+    <div class="container">
+        <div class="mt-5 row justify-content-center">
+            <div class="col-10 mb-3">
+                <ul>
+                    <li *ngFor="let link of fileUris">
+                        <a href="{{ link }}" target="_blank">{{ link }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <p-table [value]="listdocument" >
+        <ng-template pTemplate="header">
+
+            <tr>
+                  <th>ID</th>
+                  <th>ID Dossier</th>
+                  <th>Name </th>
+                  <th>Type Fichier</th>
+                </tr>
+              </ng-template>
+            <!--afficher un tableau avec la boucle for-->
+            <ng-template pTemplate="body" let-v>
+                <tr>
+              <td>{{v.id}}</td>
+              <td>{{v.numDossier}}</td>
+              <td>{{v.name}}</td>
+              <td>{{v.type}}</td>     
+            </tr>
+          </ng-template>
+    </p-table>
+
+</p-fieldset>
